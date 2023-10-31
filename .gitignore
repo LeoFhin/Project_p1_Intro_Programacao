@@ -1,1 +1,9 @@
+# Pasta venv
 
+.venv/
+venv/
+.venv/lib/
+
+# Pasta .vscode
+
+.vscode/
