@@ -1,0 +1,18 @@
+Site (HTML, CSS) com glossario de termos (listar, adicionar, alterar e deletar) 
+e app de tarefas (listar, adicionar, alterar e deletar) com python.
+
+Equipes de 3 a 4 participantes:
+
+1 dev-scrum master: Gestão 
+
+1 dev-git: Organização do repositorio
+
+2 dev: Desnvolve maior parte no codigo
+
+obs: Ambos devem programar e contribuir, mas o dev-scrum e dev-git tem menos 
+participação de codigo devido a outras tarefas.
+
+obs2: Tudo no repositorio do github, fazer pagina com links e 
+uma pagina sobre a equipe.
+
+obs3: OBRIGATORIO APRESENTAR; OBRIGATORIO TER HTML, CSS E BOOTSRTAP.
