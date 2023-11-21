@@ -16,3 +16,5 @@ obs2: Tudo no repositorio do github, fazer pagina com links e
 uma pagina sobre a equipe.
 
 obs3: OBRIGATORIO APRESENTAR; OBRIGATORIO TER HTML, CSS E BOOTSRTAP.
+
+Reutilizar o de front end onde o glossario sera os produtos e a tarefa sera os pedidos
