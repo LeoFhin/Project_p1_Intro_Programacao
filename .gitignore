@@ -7,3 +7,7 @@ venv/
 # Pasta .vscode
 
 .vscode/
+
+# Pasta .idea
+
+.idea/*
