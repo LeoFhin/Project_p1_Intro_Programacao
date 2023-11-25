@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="produtos_css/styles.css">
-    <link rel="stylesheet" href="produtos_css/styles_nav.css">
-    <link rel="stylesheet" href="produtos_css/produtos.css">
-    <link rel="stylesheet" href="produtos_css/slides.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='produtos_css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='produtos_css/styles_nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='produtos_css/produtos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='produtos_css/slides.css') }}">
 
     <title>Padaria Jardins | Produtos</title>
 
@@ -86,7 +86,7 @@
 
         <div class="card">
 
-            <img src="imgs/produtos/bolo_fofo.jpg" alt="Bolo Fofo">
+            <img src="{{ url_for('static', filename='imgs/produtos/bolo_fofo.jpg') }}" alt="Bolo Fofo">
             <div class="card_bolo">
 
                 <h1>Bolo fofo</h1>
@@ -99,7 +99,7 @@
        
         <div class="card">
 
-            <img src="imgs/produtos/coixinha.jpg" alt="Coixinha">
+            <img src="{{ url_for('static', filename='imgs/produtos/coixinha.jpg') }}" alt="Coixinha">
             <div class="card_coixinha">
 
                 <h1>Coixinha</h1>
@@ -113,7 +113,7 @@
 
         <div class="card">
 
-            <img src="imgs/produtos/pao_doce.jpg" alt="Pão Doce">
+            <img src="{{ url_for('static', filename='imgs/produtos/pao_doce.jpg') }}" alt="Pão Doce">
             <div class="card_pao_doce">
 
                 <h1>Pão Doce</h1>
@@ -126,7 +126,7 @@
 
         <div class="card">
 
-            <img src="imgs/produtos/pao_frances.jpg" alt="Pão Frances">
+            <img src="{{ url_for('static', filename='imgs/produtos/pao_frances.jpg') }}" alt="Pão Frances">
             <div class="card_pao_frances">
 
                 <h1>Pão Frances</h1>
@@ -139,7 +139,7 @@
 
         <div class="card">
 
-            <img src="imgs/produtos/pao_pizza.jpg" alt="Pão Pizza ou Pão Delicia">
+            <img src="{{ url_for('static', filename='imgs/produtos/pao_pizza.jpg') }}" alt="Pão Pizza ou Pão Delicia">
             <div class="card_pao_pizza">
 
                 <h1>Pão Delicia</h1>
