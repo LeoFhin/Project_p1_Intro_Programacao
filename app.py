@@ -1,3 +1,4 @@
+# Importa as bibliotecas
 import os
 import csv
 from flask import Flask, render_template, redirect, url_for, request
@@ -10,6 +11,7 @@ os.environ['FLASK_DEBUG'] = 'True'
 # Configurando o modo de depuração com base na variável de ambiente
 app.debug = os.environ.get('FLASK_DEBUG') == 'True'
 
+# Definindo as rotas das paginas
 @app.route('/')
 def ola():
     return render_template('index.html')
@@ -45,7 +47,7 @@ def glossario():
     glossario_de_termos = []
 
     with open(
-            'bd_glossario.csv',
+            'avaliacoes.csv',
             newline='', encoding='utf-8') as arquivo:
         reader = csv.reader(arquivo, delimiter=';')
         for l in reader:
@@ -66,7 +68,7 @@ def criar_termo():
     definicao = request.form['definicao']
 
     with open(
-            'bd_glossario.csv', 'a',
+            'avaliacoes.csv', 'a',
             newline='', encoding='utf-8') as arquivo:
         writer = csv.writer(arquivo, delimiter=';')
         writer.writerow([termo, definicao])
@@ -77,7 +79,7 @@ def criar_termo():
 @app.route('/excluir_termo/<int:termo_id>', methods=['POST'])
 def excluir_termo(termo_id):
 
-    with open('bd_glossario.csv', 'r', newline='') as file:
+    with open('avaliacoes.csv', 'r', newline='') as file:
         reader = csv.reader(file)
         linhas = list(reader)
 
@@ -88,7 +90,7 @@ def excluir_termo(termo_id):
             break
 
     # Salvar as alterações de volta no arquivo
-    with open('bd_glossario.csv', 'w', newline='') as file:
+    with open('avaliacoes.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(linhas)
 
@@ -97,7 +99,7 @@ def excluir_termo(termo_id):
 # @app.route('/pesquisar_termo/<int:termo_id>')
 # def pesquisar_termo(termo_id):
 #
-#     with open('bd_glossario.csv', 'r', newline='') as file:
+#     with open('avaliacoes.csv', 'r', newline='') as file:
 #         reader = csv.reader(file)
 #         linhas = list(reader)
 #
