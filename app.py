@@ -22,6 +22,10 @@ def home():
 def sobre():
     return render_template('index_sobre.html')
 
+@app.route('/index_produtos.html')
+def produtos():
+    return render_template('index_produtos.html')
+
 
 @app.route('/glossario')
 def glossario():
