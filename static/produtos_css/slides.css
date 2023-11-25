@@ -30,23 +30,23 @@
 }
 
 .container #slider-img-1{
-    background-image: url(/imgs/produtos/bolo_fofo.jpg);
+    background-image: url(/static/imgs/produtos/bolo_fofo.jpg);
     background-position: center;
     background-repeat: no-repeat;
     
 }
 .container #slider-img-2{
-    background-image: url(/imgs/produtos/coixinha.jpg);
+    background-image: url(/static/imgs/produtos/coixinha.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }
 .container #slider-img-3{
-    background-image: url(/imgs/produtos/pao_pizza.jpg);
+    background-image: url(/static/imgs/produtos/pao_pizza.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }
 .container #slider-img-4{
-    background-image: url(/imgs/produtos/pao_doce.jpg);
+    background-image: url(/static/imgs/produtos/pao_doce.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }
