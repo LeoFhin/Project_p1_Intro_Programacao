@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Padaria Jardins | Bessa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_mapa.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_historia.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes.css') }}">
 </head>
 <body>
-    
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Padaria Jardins</h1>
+        </div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="index_sobre.html">Sobre nós</a>
+            <a href="index_produtos.html">Produtos</a>
+            <a href="index_contato.html">Fale Conosco</a>
+            <a href="index_avaliacoes.html">Avaliações</a>
+            <a href="index_portifolios.html">Devs | Portifolios</a>
+        </div>
+    </nav>
 </body>
 </html>
