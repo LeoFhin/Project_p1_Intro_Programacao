@@ -14,10 +14,13 @@ app.debug = os.environ.get('FLASK_DEBUG') == 'True'
 def ola():
     return render_template('index.html')
 
+@app.route('/index.html')
+def home():
+    return render_template('index.html')
 
-@app.route('/sobre')
+@app.route('/index_sobre.html')
 def sobre():
-    return render_template('sobre.html')
+    return render_template('index_sobre.html')
 
 
 @app.route('/glossario')
