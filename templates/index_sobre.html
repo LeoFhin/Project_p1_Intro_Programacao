@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Links do CSS -->
-    <link rel="stylesheet" href="sobre_css/styles.css">
-    <link rel="stylesheet" href="sobre_css/styles_nav.css">
-    <link rel="stylesheet" href="sobre_css/sobre.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sobre_css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sobre_css/styles_nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sobre_css/sobre.css') }}">
 
     <title>Padaria Jardins | Sobre Nós</title>
 
@@ -49,7 +49,7 @@
             <h2 id="melhor">A melhor do Bessa</h2>
             <div class="imagem_enunciado">
 
-                <img src="imgs/padaria.png" alt="Imagem da fachada da Padaria Jardins">
+                <img src="{{ url_for('static', filename='imgs/padaria.png') }}" alt="Imagem da fachada da Padaria Jardins">
     
             </div>
 
