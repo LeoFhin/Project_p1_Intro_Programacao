@@ -30,6 +30,10 @@ def produtos():
 def contato():
     return render_template('index_contato.html')
 
+@app.route('/index_avaliacoes.html')
+def avaliacoes():
+    return render_template('index_avaliacoes.html')
+
 @app.route('/index_portifolios.html')
 def portifolios():
     return render_template('index_portifolios.html')
