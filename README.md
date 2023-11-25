@@ -6,10 +6,10 @@ Projeto sobre um App de Tarefas e Glossários
 
 **Equipe:**
 
-- Danilo Pereira
-- Leornado Santos
-- Miguel Rodrigues
-- João Vitor Pereira
+- Leornado Santos = SCRUM Master
+- Danilo Pereira = Dev-Git
+- Miguel Rodrigues = Dev
+- João Vitor Pereira = Dev
 
 #
 
