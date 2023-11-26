@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Padaria Jardins | Avaliações </title>
-    
+
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/styles_nav.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/avaliacoes.css') }}">
@@ -37,9 +37,9 @@
         <h2>Avaliações</h2>
 
         <ul>
-            {% for nota, definicao in glossario %}
+            {% for nota, descricao in avaliacoes %}
                 <li>
-                    <strong>{{ nota }}</strong>: {{ definicao }}
+                    <strong>{{ nota }}</strong>: {{ descricao }}
 
                     <form action="{{ url_for('excluir_nota', nota_id=loop.index0) }}" method="post">
 
@@ -50,7 +50,7 @@
             {% endfor %}
         </ul>
 
-        <a href="{{ url_for('novo_nota') }}">Adicionar Nova Nota</a>
+        <a href="{{ url_for('nova_nota') }}">Adicionar Nova Nota</a>
 
     </div>
 
