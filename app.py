@@ -99,7 +99,13 @@ def excluir_nota(nota_id):
             writer = csv.writer(file)
             writer.writerows(linhas)
 
+        if 0 <= nota_id < len(linhas):
+            del linhas[nota_id]
+
     return redirect(url_for('avaliacoes'))
+
+    if 0 <= nota_id < len(linhas):
+        del linhas[nota_id]
 
 ###############################################################################################
 

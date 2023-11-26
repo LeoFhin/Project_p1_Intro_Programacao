@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/styles_nav.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/avaliacoes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='contato_css/styles_form.css') }}">
 
 </head>
 
@@ -32,12 +33,19 @@
         </div>
     </nav>
 
-    <div class="avaliacoes_gerais">
+    <div class="conteudo">
+        <div class="avaliacoes_gerais">
 
-        <h2>Avaliações</h2>
+            <div class="form-titulo">
+                <div class="title">
+                    <h1>Avaliações</h1>
+                </div>
+            </div>
 
-        <ul>
-            {% for nota, descricao in avaliacoes %}
+            <h2>Avalie Nosso Estabelecimento</h2>
+
+            <ul>
+                {% for nota, descricao in avaliacoes %}
                 <li>
                     <strong>{{ nota }}</strong>: {{ descricao }}
 
@@ -47,11 +55,12 @@
 
                     </form>
                 </li>
-            {% endfor %}
-        </ul>
+                {% endfor %}
+            </ul>
 
-        <a href="{{ url_for('nova_avaliacao') }}">Adicionar Nova Nota</a>
+            <a href="{{ url_for('nova_avaliacao') }}">Adicionar Nova Nota</a>
 
+        </div>
     </div>
 
 </body>
