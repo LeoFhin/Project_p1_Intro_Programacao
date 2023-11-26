@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Padaria Jardins | Avaliações </title>
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/styles_nav.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='avaliacoes_css/avaliacoes.css') }}">
+
 </head>
+
+
 <body>
+
     <nav class="navbar">
         <div class="logo">
             <h1>Padaria Jardins</h1>
@@ -24,18 +33,28 @@
     </nav>
 
     <div class="avaliacoes_gerais">
-    <h2>Avaliações</h2>
-    <ul>
-        {% for nota, definicao in glossario %}
-            <li>
-                <strong>{{ nota }}</strong>: {{ definicao }}
-                <form action="{{ url_for('excluir_nota', nota_id=loop.index0) }}" method="post">
-                    <button type="submit">Excluir</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('novo_nota') }}">Adicionar Nova Nota</a>
+
+        <h2>Avaliações</h2>
+
+        <ul>
+            {% for nota, definicao in glossario %}
+                <li>
+                    <strong>{{ nota }}</strong>: {{ definicao }}
+
+                    <form action="{{ url_for('excluir_nota', nota_id=loop.index0) }}" method="post">
+
+                        <button type="submit">Excluir</button>
+
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('novo_nota') }}">Adicionar Nova Nota</a>
+
     </div>
+
 </body>
+
+
 </html>
