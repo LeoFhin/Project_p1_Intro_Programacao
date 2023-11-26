@@ -32,82 +32,44 @@ def produtos():
 def contato():
     return render_template('index_contato.html')
 
-@app.route('/index_avaliacoes.html')
-def avaliacoes():
-    return render_template('index_avaliacoes.html')
-
 @app.route('/index_portifolios.html')
 def portifolios():
     return render_template('index_portifolios.html')
 
+# Rota das Avaliaçoes e manipulação do arquivo csv
+@app.route('/index_avaliacoes.html')
+def avaliacoes():
 
-@app.route('/glossario')
-def glossario():
-
-    glossario_de_notas = []
+    avaliacoes_e_notas = []
 
     with open(
             'avaliacoes.csv',
             newline='', encoding='utf-8') as arquivo:
         reader = csv.reader(arquivo, delimiter=';')
         for l in reader:
-            glossario_de_notas.append(l)
+            avaliacoes_e_notas.append(l)
 
-    return render_template('glossario.html',
-                           glossario=glossario_de_notas)
+    return render_template('index_avaliacoes.html',
+                           avaliacoes=avaliacoes_e_notas)
 
 
-@app.route('/novo_nota')
-def novo_nota():
-    return render_template('adicionar_nota.html')
+@app.route('/index_add_avaliacoes.html')
+def nova_nota():
+    return render_template('index_add_avaliacoes.html')
 
 
 @app.route('/criar_nota', methods=['POST', ])
 def criar_nota():
     nota = request.form['nota']
-    definicao = request.form['definicao']
+    descricao = request.form['descricao']
 
     with open(
             'avaliacoes.csv', 'a',
             newline='', encoding='utf-8') as arquivo:
         writer = csv.writer(arquivo, delimiter=';')
-        writer.writerow([nota, definicao])
+        writer.writerow([nota, descricao])
 
-    return redirect(url_for('glossario'))
-
-
-@app.route('/excluir_nota/<int:nota_id>', methods=['POST'])
-def excluir_nota(nota_id):
-
-    with open('avaliacoes.csv', 'r', newline='') as file:
-        reader = csv.reader(file)
-        linhas = list(reader)
-
-    # Encontrar e excluir o nota com base no ID
-    for i, linha in enumerate(linhas):
-        if i == nota_id:
-            del linhas[i]
-            break
-
-    # Salvar as alterações de volta no arquivo
-    with open('avaliacoes.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(linhas)
-
-    return redirect(url_for('glossario'))
-
-# @app.route('/pesquisar_nota/<int:nota_id>')
-# def pesquisar_nota(nota_id):
-#
-#     with open('avaliacoes.csv', 'r', newline='') as file:
-#         reader = csv.reader(file)
-#         linhas = list(reader)
-#
-#     # Encontrar e excluir o nota com base no ID
-#     for i, linha in enumerate(linhas):
-#         if i == nota_id:
-#             del linhas[i]
-#             break
+    return redirect(url_for('avaliacoes'))
 
 
 
