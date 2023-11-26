@@ -18,7 +18,7 @@
 
 <body>
 
-    <!-- inicio da nav bar-->
+    <!-- Inicio da Navbar-->
     <nav class="navbar">
 
         <div class="logo">
@@ -42,16 +42,20 @@
     <div class="add_avaliacoes">
 
         <h2>Adicionar Nova Nota</h2>
+
         <form action="{{ url_for('criar_nota') }}" method="post">
+
             <label for="nota">Nota:</label>
             <input type="text" id="nota" name="nota" required>
             <label for="descricao">Descrição:</label>
             <textarea id="descricao" name="descricao" required></textarea>
+
             <button type="submit">Adicionar nota</button>
         </form>
         <a href="{{ url_for('avaliacoes') }}">Voltar para as Avaliações</a>
 
     </div>
+    
 </body>
 
 
