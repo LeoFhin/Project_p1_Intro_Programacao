@@ -1,4 +1,4 @@
-Site (HTML, CSS) com glossario de termos (listar, adicionar, alterar e deletar) 
+Site (HTML, CSS) com glossario de notas (listar, adicionar, alterar e deletar) 
 e app de tarefas (listar, adicionar, alterar e deletar) com python.
 
 Equipes de 3 a 4 participantes:

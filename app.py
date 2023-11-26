@@ -44,48 +44,48 @@ def portifolios():
 @app.route('/glossario')
 def glossario():
 
-    glossario_de_termos = []
+    glossario_de_notas = []
 
     with open(
             'avaliacoes.csv',
             newline='', encoding='utf-8') as arquivo:
         reader = csv.reader(arquivo, delimiter=';')
         for l in reader:
-            glossario_de_termos.append(l)
+            glossario_de_notas.append(l)
 
     return render_template('glossario.html',
-                           glossario=glossario_de_termos)
+                           glossario=glossario_de_notas)
 
 
-@app.route('/novo_termo')
-def novo_termo():
-    return render_template('adicionar_termo.html')
+@app.route('/novo_nota')
+def novo_nota():
+    return render_template('adicionar_nota.html')
 
 
-@app.route('/criar_termo', methods=['POST', ])
-def criar_termo():
-    termo = request.form['termo']
+@app.route('/criar_nota', methods=['POST', ])
+def criar_nota():
+    nota = request.form['nota']
     definicao = request.form['definicao']
 
     with open(
             'avaliacoes.csv', 'a',
             newline='', encoding='utf-8') as arquivo:
         writer = csv.writer(arquivo, delimiter=';')
-        writer.writerow([termo, definicao])
+        writer.writerow([nota, definicao])
 
     return redirect(url_for('glossario'))
 
 
-@app.route('/excluir_termo/<int:termo_id>', methods=['POST'])
-def excluir_termo(termo_id):
+@app.route('/excluir_nota/<int:nota_id>', methods=['POST'])
+def excluir_nota(nota_id):
 
     with open('avaliacoes.csv', 'r', newline='') as file:
         reader = csv.reader(file)
         linhas = list(reader)
 
-    # Encontrar e excluir o termo com base no ID
+    # Encontrar e excluir o nota com base no ID
     for i, linha in enumerate(linhas):
-        if i == termo_id:
+        if i == nota_id:
             del linhas[i]
             break
 
@@ -96,16 +96,16 @@ def excluir_termo(termo_id):
 
     return redirect(url_for('glossario'))
 
-# @app.route('/pesquisar_termo/<int:termo_id>')
-# def pesquisar_termo(termo_id):
+# @app.route('/pesquisar_nota/<int:nota_id>')
+# def pesquisar_nota(nota_id):
 #
 #     with open('avaliacoes.csv', 'r', newline='') as file:
 #         reader = csv.reader(file)
 #         linhas = list(reader)
 #
-#     # Encontrar e excluir o termo com base no ID
+#     # Encontrar e excluir o nota com base no ID
 #     for i, linha in enumerate(linhas):
-#         if i == termo_id:
+#         if i == nota_id:
 #             del linhas[i]
 #             break
 
