@@ -11,6 +11,7 @@ os.environ['FLASK_DEBUG'] = 'True'
 # Configurando o modo de depuração com base na variável de ambiente
 app.debug = os.environ.get('FLASK_DEBUG') == 'True'
 
+
 # Definindo as rotas das paginas
 @app.route('/')
 def ola():
@@ -36,8 +37,13 @@ def contato():
 def portifolios():
     return render_template('index_portifolios.html')
 
-# Rota das Avaliaçoes e manipulação do arquivo csv
 @app.route('/index_avaliacoes.html')
+def avaliacoes_geral():
+    return render_template('index_avaliacoes.html')
+
+
+# Rota das Avaliaçoes e manipulação do arquivo csv
+@app.route('/avaliacoes')
 def avaliacoes():
 
     avaliacoes_e_notas = []
@@ -53,12 +59,12 @@ def avaliacoes():
                            avaliacoes=avaliacoes_e_notas)
 
 
-@app.route('/index_add_avaliacoes.html')
-def nova_nota():
+@app.route('/nova_avaliacoes')
+def nova_avaliacao():
     return render_template('index_add_avaliacoes.html')
 
 
-@app.route('/criar_nota', methods=['POST', ])
+@app.route('/criar_nota', methods=['POST'])
 def criar_nota():
     nota = request.form['nota']
     descricao = request.form['descricao']
