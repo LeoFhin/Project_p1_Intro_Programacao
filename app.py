@@ -11,6 +11,7 @@ os.environ['FLASK_DEBUG'] = 'True'
 # Configurando o modo de depuração com base na variável de ambiente
 app.debug = os.environ.get('FLASK_DEBUG') == 'True'
 
+###############################################################################################
 
 # Definindo as rotas das paginas
 @app.route('/')
@@ -41,6 +42,7 @@ def portifolios():
 def avaliacoes_geral():
     return render_template('index_avaliacoes.html')
 
+###############################################################################################
 
 # Rota das Avaliaçoes e manipulação do arquivo csv
 @app.route('/avaliacoes')
@@ -78,6 +80,27 @@ def criar_nota():
     return redirect(url_for('avaliacoes'))
 
 
+@app.route('/excluir_nota/<int:nota_id>', methods=['POST'])
+def excluir_nota(nota_id):
+
+    with open('avaliacoes.csv', 'r', newline='') as file:
+        reader = csv.reader(file)
+        linhas = list(reader)
+
+    # Encontrar e excluir o termo com base no ID
+    for i, linhas in enumerate(linhas):
+        if i == nota_id:
+            del linhas[i]
+            break
+
+        # Salvar as alterações de volta no arquivo
+        with open('avaliacoes.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(linhas)
+
+    return redirect(url_for('avaliacoes'))
+
+###############################################################################################
 
 if __name__ == "__main__":
     app.run()

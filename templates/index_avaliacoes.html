@@ -41,7 +41,7 @@
                 <li>
                     <strong>{{ nota }}</strong>: {{ descricao }}
 
-                    <form action="{{ url_for('avaliacoes', nota_id=loop.index0) }}" method="post">
+                    <form action="{{ url_for('excluir_nota', nota_id=loop.index-1) }}" method="post">
 
                         <button type="submit">Excluir</button>
 
