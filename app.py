@@ -87,11 +87,9 @@ def excluir_nota(nota_id):
         reader = csv.reader(file)
         linhas = list(reader)
 
-    # Encontrar e excluir o termo com base no ID
-    for i, linhas in enumerate(linhas):
-        if i == nota_id:
-            del linhas[i]
-            break
+    # Remover o termo com base no ID
+    if 0 <= nota_id < len(linhas):
+        del linhas[nota_id]
 
         # Salvar as alterações de volta no arquivo
         with open('avaliacoes.csv', 'w', newline='') as file:
