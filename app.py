@@ -61,11 +61,13 @@ def avaliacoes():
                            avaliacoes=avaliacoes_e_notas)
 
 
+# Rota para a pagina de nova avaliação
 @app.route('/nova_avaliacoes')
 def nova_avaliacao():
     return render_template('index_add_avaliacoes.html')
 
 
+# Rota de Criação de novas avaliações para o arquivo csv
 @app.route('/criar_nota', methods=['POST'])
 def criar_nota():
     nota = request.form['nota']
@@ -80,6 +82,7 @@ def criar_nota():
     return redirect(url_for('avaliacoes'))
 
 
+# Rota de Remover avaliações para o arquivo csv
 @app.route('/excluir_nota/<int:nota_id>', methods=['POST'])
 def excluir_nota(nota_id):
 
@@ -100,5 +103,6 @@ def excluir_nota(nota_id):
 
 ###############################################################################################
 
+# Roda o aplicativo Flask
 if __name__ == "__main__":
     app.run()
