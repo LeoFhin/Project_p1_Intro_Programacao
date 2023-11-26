@@ -3,6 +3,7 @@
 .venv/
 venv/
 .venv/lib/
+__pycache__/*
 
 # Pasta .vscode
 
