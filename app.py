@@ -116,6 +116,35 @@ def excluir_nota(nota_id):
 
 ###############################################################################################
 
+carrinho = []
+
+@app.route('/add', methods=['POST'])
+def add():
+    item = request.form['item']
+    carrinho.append({'task': item, 'done': False})
+    return redirect(url_for('contato'))
+
+@app.route('/edit/<int:index_contato>', methods=['GET', 'POST'])
+def editar_index_contato(index_contato):
+    item = carrinho[index_contato]
+    if request.method == 'POST':
+        item['task'] = request.form['item']
+        return redirect(url_for('contato'))
+    else:
+        return render_template('edit_index_contato.html', item=item, index_contato=index_contato)
+
+@app.route('/check/<int:index_contato>')
+def check(index_contato):
+    carrinho[index_contato]['done'] = not carrinho[index_contato]['done']
+    return redirect(url_for('contato'))
+
+@app.route('/delete/<int:index_contato>')
+def delete(index_contato):
+    del carrinho[index_contato]
+    return redirect(url_for('contato'))
+
+
+###############################################################################################
 # Roda o aplicativo Flask
 if __name__ == "__main__":
     app.run()
