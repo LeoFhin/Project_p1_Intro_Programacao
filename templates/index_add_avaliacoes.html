@@ -45,17 +45,23 @@
         <!-- Formulario de adição da nota -->
         <div class="add_avaliacoes">
 
-            <h2>Adicionar Nova Nota</h2>
+            <h2 style="border-bottom: 2px solid rgb(12, 119, 35);">Adicionar Nova Nota</h2>
 
             <div class="perguntas">
-            <form action="{{ url_for('criar_nota') }}" method="post">
+                <form action="{{ url_for('criar_nota') }}" method="post">
 
-                <label for="nota">Nome:</label>
-                <input type="text" id="nota" name="nota" required>
-                <label for="descricao">Descrição da Avaliação:</label>
-                <textarea id="descricao" name="descricao" required></textarea>
+                    <label style="border-bottom: 2px solid rgb(12, 119, 35);" for="nota">Nome:</label>
+
+                    <input type="text" id="nota" name="nota" placeholder="Digite Seu Nome" required>
+
+                    <label style="border-bottom: 2px solid rgb(12, 119, 35);" class="caixinhas"
+                        for="descricao">Descrição da Avaliação:</label>
+
+                    <textarea class="caixinhas" type="text" name="descricao" id="descricao" cols="30" rows="4" required
+                        placeholder="Digite Sua Avaliação"></textarea>
 
             </div>
+            <div class="botoes">
                 <button style="margin-top: 20px;
                 background-color: rgb(12, 119, 35);
                 border: none;
@@ -68,8 +74,8 @@
                 cursor: pointer;
                 border-radius: 8px;
                 transition: background-color 1s ease;" type="submit">Adicionar nota</button>
-            </form>
-            <a href="{{ url_for('avaliacoes') }}"><button style="margin-top: 20px;
+                </form>
+                <a href="{{ url_for('avaliacoes') }}"><button style="margin-top: 20px;
                 background-color: rgb(12, 119, 35);
                 border: none;
                 color: #fff;
@@ -80,8 +86,8 @@
                 font-size: 16px;
                 cursor: pointer;
                 border-radius: 8px;
-                transition: background-color 1s ease;" >Voltar para as avaliacoes</button></a>
-
+                transition: background-color 1s ease;">Voltar para as avaliacoes</button></a>
+            </div>
         </div>
     </div>
 
