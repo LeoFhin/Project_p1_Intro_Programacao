@@ -4,60 +4,97 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Padaria Jardins | Carrinho</title>
+  <title>Padaria Jardins | Carrinho</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='contato_css/styles_form.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_nav.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_header.css') }}">
-        
+  <link rel="stylesheet" href="{{ url_for('static', filename='contato_css/styles_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_nav.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_header.css') }}">
+
 </head>
 
 
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <h1>Padaria Jardins</h1>
-        </div>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="index_sobre.html">Sobre nós</a>
-            <a href="index_produtos.html">Produtos</a>
-            <a href="index_contato.html">Fale Conosco</a>
-            <a href="index_avaliacoes.html">Avaliações</a>
-            <a href="index_portifolios.html">Devs | Portifolios</a>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="logo">
 
-    <div class="conteudo">
-
-        <h1>Carrinho</h1>
-        <br>
-
-        <ul>
-            {% for item in carrinho %}
-              <li>
-
-                <input type="checkbox" name="done" {% if item['done'] %}checked{% endif %} onchange="this.form.submit()">
-                <span {% if item['done'] %}style="text-decoration: line-through"{% endif %}>{{ item['task'] }}</span>
-                <a href="{{ url_for('editar_index_contato', index_contato=loop.index0) }}">Editar</a>
-                <a href="{{ url_for('delete', index_contato=loop.index0) }}">Excluir</a>
-              
-              </li>
-            {% endfor %}
-          </ul>
-
-        <form action="{{ url_for('add') }}" method="post">
-
-          <input type="text" name="item">
-          <button type="submit">Add</button>
-
-        </form>
-
+      <h1>Padaria Jardins</h1>
     </div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="index_sobre.html">Sobre nós</a>
+      <a href="index_produtos.html">Produtos</a>
+      <a href="index_contato.html">Carrinho</a>
+      <a href="index_avaliacoes.html">Avaliações</a>
+      <a href="index_portifolios.html">Devs | Portifolios</a>
+    </div>
+  </nav>
+
+  <div class="conteudo1">
+
+    <h1 style="color: rgb(241, 173, 84); margin-top: 10px;">Carrinho</h1>
+    <br>
+
+    <ul>
+      {% for item in carrinho %}
+      <li>
+
+        <input type="checkbox" name="done" {% if item['done'] %}checked{% endif %} onchange="this.form.submit()">
+        <span {% if item['done'] %}style="text-decoration: line-through" {% endif %}>{{ item['task'] }}</span>
+        <a href="{{ url_for('editar_index_contato', index_contato=loop.index0) }}"><button style="margin-top: 20px;
+          background-color: rgb(31, 2, 100);
+          border: none;
+          color: #fff;
+          padding: 10px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: background-color 1s ease;">Editar</button></a>
+        <a href="{{ url_for('delete', index_contato=loop.index0) }}"><button style="margin-top: 20px;
+          background-color: rgb(100, 2, 2);
+          border: none;
+          color: #fff;
+          padding: 10px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: background-color 1s ease;">Remover Produto</button></a>
+
+      </li>
+      {% endfor %}
+    </ul>
+
+
+<h2 style="margin-top: 40px; color: rgb(241, 173, 84);">DIGITE O PRODUTO E A QUANTIDADE</h2>
+    <form action="{{ url_for('add') }}" method="post">
+
+      <input placeholder="X(UND) | Nome Do Produto" type="text" name="item">
+      <button style="margin-top: 20px;
+          background-color: rgb(12, 119, 35);
+          border: none;
+          color: #fff;
+          padding: 10px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: background-color 1s ease;" type="submit">Add</button>
+
+    </form>
+
+  </div>
 
 
 </body>

@@ -3,30 +3,44 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Padaria Jardins | Editar Item</title>
+  <title>Padaria Jardins | Editar Item</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='contato_css/styles_form.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_nav.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_header.css') }}">
-        
+  <link rel="stylesheet" href="{{ url_for('static', filename='contato_css/styles_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_nav.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_header.css') }}">
+
 </head>
 
 
 <body>
 
-    <h1>Editar Item</h1>
-    <br>
+    <div class="conteudo2">
+      <h1 style="margin-top: 90xpx; color: rgb(241, 173, 84);">Editar Item</h1>
+      <br>
 
-    <form action="{{ url_for('editar_index_contato', index_contato=index_contato) }}" method="post">
-      
+
+      <form action="{{ url_for('editar_index_contato', index_contato=index_contato) }}" method="post">
+
       <input type="text" name="item" value="{{ item['task'] }}">
-      <button type="submit">Salvar</button>
-    
+     <button style="margin-top: 20px;
+     background-color: rgb(12, 119, 35);
+     border: none;
+     color: #fff;
+     padding: 10px 32px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+     cursor: pointer;
+     border-radius: 8px;
+     transition: background-color 1s ease;" type="submit">Salvar</button>
+
     </form>
+  </div>
 
 </body>
 
