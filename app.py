@@ -122,6 +122,7 @@ carrinho = []
 def add():
     item = request.form['item']
     carrinho.append({'task': item, 'done': False})
+    save_cart_to_csv()
     return redirect(url_for('contato'))
 
 @app.route('/edit/<int:index_contato>', methods=['GET', 'POST'])
@@ -129,6 +130,7 @@ def editar_index_contato(index_contato):
     item = carrinho[index_contato]
     if request.method == 'POST':
         item['task'] = request.form['item']
+        save_cart_to_csv()
         return redirect(url_for('contato'))
     else:
         return render_template('edit_index_contato.html', item=item, index_contato=index_contato)
@@ -136,13 +138,35 @@ def editar_index_contato(index_contato):
 @app.route('/check/<int:index_contato>')
 def check(index_contato):
     carrinho[index_contato]['done'] = not carrinho[index_contato]['done']
+    save_cart_to_csv()
     return redirect(url_for('contato'))
 
 @app.route('/delete/<int:index_contato>')
 def delete(index_contato):
     del carrinho[index_contato]
+    save_cart_to_csv()
     return redirect(url_for('contato'))
 
+def save_cart_to_csv():
+    with open('carrinho.csv', 'w', newline='', encoding='utf-8') as arquivo:
+        writer = csv.writer(arquivo, delimiter=';')
+        for item in carrinho:
+            writer.writerow([item['task'], item['done']])
+
+def load_cart_from_csv():
+    try:
+        with open('carrinho.csv', newline='', encoding='utf-8') as arquivo:
+            reader = csv.reader(arquivo, delimiter=';')
+            carrinho.clear()
+            for linha in reader:
+                task, done = linha
+                carrinho.append({'task': task, 'done': done.lower() == 'true'})
+    except FileNotFoundError:
+        pass
+
+
+# Antes de rodar o aplicativo, carregue o carrinho a partir do CSV
+load_cart_from_csv()
 
 ###############################################################################################
 # Roda o aplicativo Flask

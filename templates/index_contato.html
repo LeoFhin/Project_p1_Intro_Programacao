@@ -34,16 +34,18 @@
     <div class="conteudo">
 
         <h1>Carrinho</h1>
+
         <ul>
-          {% for item in carrinho %}
-            <li>
-              <input type="checkbox" name="done" {% if item['done'] %}checked{% endif %} onchange="this.form.submit()">
-              <span {% if item['done'] %}style="text-decoration: line-through"{% endif %}>{{ item['task'] }}</span>
-              <a href="{{ url_for('editar_index_contato', index_contato=loop.contato0) }}">edit</a>
-              <a href="{{ url_for('delete', index_contato=loop.contato0) }}">delete</a>
-            </li>
-          {% endfor %}
-        </ul>
+            {% for item in carrinho %}
+              <li>
+                <input type="checkbox" name="done" {% if item['done'] %}checked{% endif %} onchange="this.form.submit()">
+                <span {% if item['done'] %}style="text-decoration: line-through"{% endif %}>{{ item['task'] }}</span>
+                <a href="{{ url_for('editar_index_contato', index_contato=loop.index0) }}">edit</a>
+                <a href="{{ url_for('delete', index_contato=loop.index0) }}">delete</a>
+              </li>
+            {% endfor %}
+          </ul>
+
         <form action="{{ url_for('add') }}" method="post">
           <input type="text" name="item">
           <button type="submit">Add</button>
