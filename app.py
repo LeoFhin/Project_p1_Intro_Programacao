@@ -11,7 +11,8 @@ os.environ['FLASK_DEBUG'] = 'True'
 # Configurando o modo de depuração com base na variável de ambiente
 app.debug = os.environ.get('FLASK_DEBUG') == 'True'
 
-###############################################################################################
+
+#######################################  Rotas  ###############################################
 
 # Definindo as rotas das paginas
 @app.route('/')
@@ -38,7 +39,8 @@ def portifolios():
 def avaliacoes_geral():
     return render_template('index_avaliacoes.html')
 
-###############################################################################################
+
+############################   Avaliações(Glosario)    ########################################
 
 # Rota das Avaliaçoes e manipulação do arquivo csv
 @app.route('/avaliacoes')
@@ -110,12 +112,13 @@ def excluir_nota(nota_id):
     if 0 <= nota_id < len(linhas):
         del linhas[nota_id]
 
-###############################################################################################
+#############################   Carrinho(Tarefas)   ###########################################
 
 @app.route('/index_contato.html')
 def contato():
     return render_template('index_contato.html', carrinho=carrinho)
 
+# Cria a lista
 carrinho = []
 
 @app.route('/add', methods=['POST'])
