@@ -114,6 +114,7 @@ def excluir_nota(nota_id):
 
 #############################   Carrinho(Tarefas)   ###########################################
 
+# Rota para a pagina do contato
 @app.route('/index_contato.html')
 def contato():
     return render_template('index_contato.html', carrinho=carrinho)
@@ -121,13 +122,19 @@ def contato():
 # Cria a lista
 carrinho = []
 
+# Rota de criação de um item no carrinho
 @app.route('/add', methods=['POST'])
 def add():
+    # Cria a variavel de itens
     item = request.form['item']
+    # Armazena as informações do formulario
     carrinho.append({'task': item, 'done': False})
+    #Salva no csv
     save_cart_to_csv()
+    # Atualiza a pagina
     return redirect(url_for('contato'))
 
+# Rota para editar os itens do carrinho
 @app.route('/edit/<int:index_contato>', methods=['GET', 'POST'])
 def editar_index_contato(index_contato):
     item = carrinho[index_contato]
@@ -168,7 +175,7 @@ def load_cart_from_csv():
         pass
 
 
-# Antes de rodar o aplicativo, carregue o carrinho a partir do CSV
+# Antes de rodar o aplicativo, abre a função de carreguar o carrinho a partir do CSV
 load_cart_from_csv()
 
 ###############################################################################################
