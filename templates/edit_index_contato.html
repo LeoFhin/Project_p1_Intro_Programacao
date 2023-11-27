@@ -1,15 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Padaria Jardins | Editar Item</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='contato_css/styles_form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_header.css') }}">
+        
 </head>
+
+
 <body>
-    <h1>Edit Todo</h1>
+
+    <h1>Editar Item</h1>
+    <br>
+
     <form action="{{ url_for('editar_index_contato', index_contato=index_contato) }}" method="post">
+      
       <input type="text" name="item" value="{{ item['task'] }}">
-      <button type="submit">Save</button>
+      <button type="submit">Salvar</button>
+    
     </form>
+
 </body>
+
+
 </html>

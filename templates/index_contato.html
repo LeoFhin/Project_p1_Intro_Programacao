@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 
 <head>
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Padaria Jardins | Contato</title>
+    <title>Padaria Jardins | Carrinho</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='contato_css/styles_form.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles.css') }}">
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='menu_css/styles_header.css') }}">
         
 </head>
+
 
 <body>
     <nav class="navbar">
@@ -34,27 +35,32 @@
     <div class="conteudo">
 
         <h1>Carrinho</h1>
+        <br>
 
         <ul>
             {% for item in carrinho %}
               <li>
+
                 <input type="checkbox" name="done" {% if item['done'] %}checked{% endif %} onchange="this.form.submit()">
                 <span {% if item['done'] %}style="text-decoration: line-through"{% endif %}>{{ item['task'] }}</span>
-                <a href="{{ url_for('editar_index_contato', index_contato=loop.index0) }}">edit</a>
-                <a href="{{ url_for('delete', index_contato=loop.index0) }}">delete</a>
+                <a href="{{ url_for('editar_index_contato', index_contato=loop.index0) }}">Editar</a>
+                <a href="{{ url_for('delete', index_contato=loop.index0) }}">Excluir</a>
+              
               </li>
             {% endfor %}
           </ul>
 
         <form action="{{ url_for('add') }}" method="post">
+
           <input type="text" name="item">
           <button type="submit">Add</button>
+
         </form>
 
     </div>
 
 
-
 </body>
+
 
 </html>
