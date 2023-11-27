@@ -30,10 +30,6 @@ def sobre():
 def produtos():
     return render_template('index_produtos.html')
 
-@app.route('/index_contato.html')
-def contato():
-    return render_template('index_contato.html')
-
 @app.route('/index_portifolios.html')
 def portifolios():
     return render_template('index_portifolios.html')
@@ -115,6 +111,10 @@ def excluir_nota(nota_id):
         del linhas[nota_id]
 
 ###############################################################################################
+
+@app.route('/index_contato.html')
+def contato():
+    return render_template('index_contato.html', carrinho=carrinho)
 
 carrinho = []
 
