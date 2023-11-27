@@ -48,8 +48,10 @@ def avaliacoes_geral():
 @app.route('/avaliacoes')
 def avaliacoes():
 
+    # Cria a lista
     avaliacoes_e_notas = []
 
+    # Ler o arquivo, lista e vai redericionar para a pagina de avaliações
     with open(
             'avaliacoes.csv',
             newline='', encoding='utf-8') as arquivo:
@@ -70,9 +72,12 @@ def nova_avaliacao():
 # Rota de Criação de novas avaliações para o arquivo csv
 @app.route('/criar_nota', methods=['POST'])
 def criar_nota():
+    # Cria 2 variaveis e armazena as informações do formulario neles
     nota = request.form['nota']
     descricao = request.form['descricao']
 
+    # Ler o arquivo, escreve o valor das variaveis, salva e 
+    # vai redericionar para a pagina de avaliações
     with open(
             'avaliacoes.csv', 'a',
             newline='', encoding='utf-8') as arquivo:
@@ -86,11 +91,12 @@ def criar_nota():
 @app.route('/excluir_nota/<int:nota_id>', methods=['POST'])
 def excluir_nota(nota_id):
 
+    # Vai ler o arquivo
     with open('avaliacoes.csv', 'r', newline='') as file:
         reader = csv.reader(file)
         linhas = list(reader)
 
-    # Remover o termo com base no ID
+    # Remove a linha com base no ID do formulario
     if 0 <= nota_id < len(linhas):
         del linhas[nota_id]
 
@@ -98,10 +104,11 @@ def excluir_nota(nota_id):
         with open('avaliacoes.csv', 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerows(linhas)
-
+        # Limpa a proxima linha devido ao bug da biblioteca do csv
         if 0 <= nota_id < len(linhas):
             del linhas[nota_id]
 
+    # Redericiona para a pagina de avaliações
     return redirect(url_for('avaliacoes'))
 
     if 0 <= nota_id < len(linhas):
